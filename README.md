@@ -13,4 +13,20 @@ gem. It differs from the original gem in these ways:
   This version allows you to log some controllers while raising in others.
   To log, include ActionController::LoggingParameters.
 
+To enable logging rather than exceptions in a particular controller
+just include ActionController::LoggingParameters after including
+ActionController::StrongParameters, like so:
+
+```ruby
+  class NewBooksController < ActionController::Base
+    include ActionController::StrongParameters
+    include ActionController::LoggingParameters
+
+    def create
+      params.permit(:book => [:pages])
+      head :ok
+    end
+  end
+```
+
 [Strong Parameters]: https://github.com/rails/strong_parameters
