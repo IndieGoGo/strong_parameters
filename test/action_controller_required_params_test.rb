@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class BooksController < ActionController::Base
+  include ActionController::StrongParameters
+
   def create
     params.require(:book).require(:name)
     head :ok
