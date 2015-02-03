@@ -21,7 +21,7 @@ module ActionController
     end
   end
 
-  module AirbreakUnpermittedParameters
+  module AirbrakeUnpermittedParameters
     def params
       @_params ||= DecoratesParameters.new(Parameters.new(request.parameters))
     end

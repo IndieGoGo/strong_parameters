@@ -12,17 +12,17 @@ gem. It differs from the original gem in these ways:
   do nothing setting for unpermitted parameters effects all
   controllers.  This version allows you to be notified via [Airbrake]
   in some controllers while raising in others.  To log, `include
-  ActionController::AirbreakUnpermittedParameters`.
+  ActionController::AirbrakeUnpermittedParameters`.
 
 To enable Airbrake notifications rather than exceptions in a
 particular controller just `include
-ActionController::AirbreakUnpermittedParameters` after including
+ActionController::AirbrakeUnpermittedParameters` after including
 ActionController::StrongParameters, like so:
 
 ```ruby
   class NewBooksController < ActionController::Base
     include ActionController::StrongParameters
-    include ActionController::AirbreakUnpermittedParameters
+    include ActionController::AirbrakeUnpermittedParameters
 
     def create
       params.permit(:book => [:pages])

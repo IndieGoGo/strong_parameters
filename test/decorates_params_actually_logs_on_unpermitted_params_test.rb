@@ -1,6 +1,6 @@
 require 'test_helper'
 require 'action_controller/parameters'
-require 'action_controller/airbreak_unpermitted_parameters'
+require 'action_controller/airbrake_unpermitted_parameters'
 
 class DecoratesParamsActuallyLogsOnUnpermittedParamsTest < ActiveSupport::TestCase
   def setup
