@@ -26,6 +26,9 @@ GEM
       builder (~> 2.1.2)
       i18n (~> 0.5.0)
     activesupport (3.0.8)
+    airbrake (4.1.0)
+      builder
+      multi_json
     builder (2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -33,6 +36,7 @@ GEM
     metaclass (0.0.4)
     mocha (1.1.0)
       metaclass (~> 0.0.1)
+    multi_json (1.10.1)
     rack (1.2.8)
     rack-mount (0.6.14)
       rack (>= 1.0.0)
@@ -52,6 +56,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake
   mocha
   rake
   rdoc (>= 4.0.0)

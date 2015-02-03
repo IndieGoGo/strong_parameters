@@ -2,7 +2,7 @@ require 'test_helper'
 
 class NewBooksController < ActionController::Base
   include ActionController::StrongParameters
-  include ActionController::LoggingParameters
+  include ActionController::AirbreakUnpermittedParameters
 
   def create
     params.permit(:book => [:pages])

@@ -1,6 +1,6 @@
 require 'test_helper'
 require 'action_controller/parameters'
-require 'action_controller/logging_parameters'
+require 'action_controller/airbreak_unpermitted_parameters'
 
 class DecoratesParamsActuallyLogsOnUnpermittedParamsTest < ActiveSupport::TestCase
   def setup
@@ -17,9 +17,8 @@ class DecoratesParamsActuallyLogsOnUnpermittedParamsTest < ActiveSupport::TestCa
       :fishing => "Turnips"
     }))
 
-    assert_logged('found unpermitted parameters: fishing') do
-      params.permit(:book => [:pages])
-    end
+    Airbrake.expects(:notify_or_ignore)
+    params.permit(:book => [:pages])
   end
 
   test "doesnt raise on unexpected nested params" do
@@ -27,20 +26,7 @@ class DecoratesParamsActuallyLogsOnUnpermittedParamsTest < ActiveSupport::TestCa
       :book => { :pages => 65, :title => "Green Cats and where to find then." }
     }))
 
-    assert_logged('found unpermitted parameters: title') do
-      params.permit(:book => [:pages])
-    end
-  end
-
-  def assert_logged(message)
-    log = StringIO.new
-    ActionController::DecoratesParameters.logger = Logger.new(log)
-
-    begin
-      yield
-
-      log.rewind
-      assert_match message, log.read
-    end
+    Airbrake.expects(:notify_or_ignore)
+    params.permit(:book => [:pages])
   end
 end
