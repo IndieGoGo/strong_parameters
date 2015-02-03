@@ -5,7 +5,7 @@ module ActionController
 
     self.logger = ActionController::Base.logger
 
-    methods_to_delegate = (ActionController::Parameters.new.methods - Object.new.methods - [:permit])
+    methods_to_delegate = (ActionController::Parameters.new.methods - Object.new.methods - [:permit]) + [:require]
     delegate *methods_to_delegate, :to => :params
 
     def initialize(params)
