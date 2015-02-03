@@ -11,14 +11,15 @@ class DecoratesParamsActuallyLogsOnUnpermittedParamsTest < ActiveSupport::TestCa
     ActionController::Parameters.action_on_unpermitted_parameters = false
   end
 
-  test "doesnt raise on unexpected params" do
+  test "doesnt raise on unexpected params and returns the params object" do
     params = ActionController::DecoratesParameters.new(ActionController::Parameters.new({
       :book => { :pages => 65 },
       :fishing => "Turnips"
     }))
 
     Airbrake.expects(:notify_or_ignore)
-    params.permit(:book => [:pages])
+    result = params.permit(:book => [:pages])
+    assert_equal(params, result)
   end
 
   test "doesnt raise on unexpected nested params" do

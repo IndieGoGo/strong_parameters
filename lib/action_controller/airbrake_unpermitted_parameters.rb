@@ -18,6 +18,7 @@ module ActionController
         :parameters    => params,
         :cgi_data      => ENV.to_hash
       )
+      self
     end
   end
 
