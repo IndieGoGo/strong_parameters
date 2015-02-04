@@ -15,8 +15,8 @@ module ActionController
       DecoratesParameters.new(result)
     end
 
-    def permit(key)
-      params.permit(key)
+    def permit(*filters)
+      params.permit(*filters)
     rescue => e
       Airbrake.notify_or_ignore(
         e,
