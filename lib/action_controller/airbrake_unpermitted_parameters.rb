@@ -3,11 +3,16 @@ module ActionController
   class DecoratesParameters
     attr_reader :params
 
-    methods_to_delegate = (ActionController::Parameters.new.methods - Object.new.methods - [:permit]) + [:to_s]
+    methods_to_delegate = (ActionController::Parameters.new.methods - Object.new.methods - [:permit, :[]]) + [:to_s]
     delegate *methods_to_delegate, :to => :params
 
     def initialize(params)
       @params = params
+    end
+
+    def [](key)
+      result = params[key]
+      result.is_a?(Hash) ? DecoratesParameters.new(result) : result
     end
 
     def require(key)
