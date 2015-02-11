@@ -17,7 +17,7 @@ module ActionController
 
     def require(key)
       result = params[key].presence || raise(ActionController::ParameterMissing.new(key))
-      DecoratesParameters.new(result)
+      result.is_a?(Hash) ? DecoratesParameters.new(result) : result
     end
 
     def permit(*filters)
