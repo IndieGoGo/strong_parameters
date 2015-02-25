@@ -1,5 +1,6 @@
 require 'action_controller/parameters'
 require 'action_controller/airbrake_unpermitted_parameters'
 require 'active_model/forbidden_attributes_protection'
+require 'active_model/airbrake_forbidden_attributes'
 require 'strong_parameters/railtie'
 require 'strong_parameters/log_subscriber'
