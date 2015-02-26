@@ -14,12 +14,12 @@ established for the entire app and can be either do nothing, log, or
 raise.
 
 This version allows you to be notified via [Airbrake]
-in some controllers while raising in others.
+in some controllers and models while raising in others.
 
 To enable Airbrake notifications rather than exceptions in a
 particular controller just `include
 ActionController::AirbrakeUnpermittedParameters` after including
-ActionController::StrongParameters, like so:
+`ActionController::StrongParameters`, like so:
 
 ```ruby
   class NewBooksController < ActionController::Base
@@ -32,6 +32,20 @@ ActionController::StrongParameters, like so:
     end
   end
 ```
+
+To enable Airbrake notifications rather than exceptions in a
+particular model just `include ActiveModel::AirbrakeForbiddenAttributes` after including
+`ActiveModel::ForbiddenAttributesProtection`, like so:
+
+```ruby
+  class NewBook < ActiveRecord::Base
+    include ActiveModel::ForbiddenAttributesProtection
+    include ActiveModel::AirbrakeForbiddenAttributes
+  end
+```
+
+However, if you did not protect the controller the model is accessed in with `include ActionController::StrongParameters`,
+then the model protection will not work, that is it's wont raise exception or log to Airbrake.
 
 [Strong Parameters]: https://github.com/rails/strong_parameters
 [Airbrake]: https://airbrake.io/
