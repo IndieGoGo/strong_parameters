@@ -45,7 +45,7 @@ particular model just `include ActiveModel::AirbrakeForbiddenAttributes` after i
 ```
 
 However, if you did not protect the controller the model is accessed in with `include ActionController::StrongParameters`,
-then the model protection will not work, that is it's wont raise exception or log to Airbrake.
+then the model protection will not work, that is, it won't raise exception or log to Airbrake.
 
 [Strong Parameters]: https://github.com/rails/strong_parameters
 [Airbrake]: https://airbrake.io/
