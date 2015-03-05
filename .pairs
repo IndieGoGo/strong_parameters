@@ -1,0 +1,67 @@
+# .pairs - configuration for 'git pair'
+# to see current pairing status, try 'git about'
+pairs:
+  # <initials>: <Firstname> <Lastname>[; <email-id>]
+  ac: Adam Cabrera; adam.cabrera
+  ajr: Aaron Ringgenberg; aaron
+  am: Avinash Moondra; avi.moondra
+  ar: Amanda Robinson; arobinson
+  ay: An Yu; an
+  bk: Barry Kim; barry
+  bg: Blaine Gilbreth; blaine
+  bs: Bosco So; bosco
+  bms: Brian Stolte; brian.stolte
+  cc: Christina Cortland; christina
+  da: Dan Auerbach; dan
+  db: David Berrios; david.berrios
+  dc: Dylan Clark; dylan
+  ds: Dave Schweisguth; schwa
+  es: Eric Schell; eric
+  fm: Florian Mettetal; florian.mettetal
+  gt: Glen Tregoning; glen.tregoning
+  gx: George Xing; george
+  iz: Irvin Zhan; irvin.zhan
+  ja: Joe Arceneaux; joe
+  jb: James Bobowski; james
+  jc: Jeremy Carey; jeremy
+  jj: Jan Jirout; jan
+  jk: Jack Weiss; jack
+  jr: Jared Rhine; jared
+  js: Jeff Smith; jeff
+  jt: Judy Tuan; judy
+  jw: Jen-Mei Wu; jenmei
+  kf: Kelly Felkins; kelly
+  ks: Ken Schiller; ken.schiller
+  kx: Kevin Xie; kevin.xie
+  lh: Lori Hsu; lori
+  lc: Loredana Crisan; loredana
+  ll: Lee Lundrigan; lee
+  lm: Lucy Mendel; lucy.mendel
+  ml: Mike Luby; michael.luby
+  mm: Mike McGowan; mike
+  mr: Maggie Ronan; maggie
+  nb: Nic Baddour; nic
+  nf: Nicholas Fowler; nicholas
+  nm: Navid Mostafavi; navid
+  nw: Nathan Wilmes; nathan
+  pb: Peter Brindisi; peter
+  pl: Phi Le; phi.le
+  pz: Paul Zabelin; paul
+  rh: Robert Honsby; robert.honsby
+  sa: Siena Aguayo; siena
+  sdc: Sam Coe; sam.coe
+  sc: Stella Cotton; stella
+  rg: Ryan Gehring; gehring
+  rv: Rodrigo Vanegas; rodrigo
+  th: Travis Hotz; travis
+  vt: Valentin Tsatskin; val
+  yn: Yaakov Nemoy; yaakov
+  yy: Yolanda Yeh; yolanda.yeh
+  wb: Will Bendix; willb
+  wh: Will Haines; will
+  zg: Zhyliana Garcia; zhyliana
+email:
+  prefix: pair
+  domain: indiegogo.com
+  no_solo_prefix: true
+#global: true
