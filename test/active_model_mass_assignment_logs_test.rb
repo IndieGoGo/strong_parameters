@@ -10,6 +10,7 @@ end
 
 class ActiveModelMassUpdateLogTest < ActiveSupport::TestCase
   test "forbidden attributes are logged during mass updating" do
+    Rails.env.stubs(:test?).returns(false)
     Airbrake.expects(:notify_or_ignore).with(instance_of(ActiveModel::ForbiddenAttributes), all_of(has_entry(:parameters => { 'a' => 'b' }), has_key(:cgi_data)))
     Place.new.sanitize_for_mass_assignment(ActionController::Parameters.new(:a => 'b'))
   end
