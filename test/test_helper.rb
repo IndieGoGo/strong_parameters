@@ -33,3 +33,5 @@ ActionController::Parameters.action_on_unpermitted_parameters = false
 
 # Load support files
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
+
+require 'mocha/mini_test'

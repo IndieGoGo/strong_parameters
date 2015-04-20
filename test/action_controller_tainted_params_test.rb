@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class PeopleController < ActionController::Base
+  include ActionController::StrongParameters
+
   def create
     render :text => params[:person].permitted? ? "untainted" : "tainted"
   end
